@@ -2,38 +2,47 @@
 
 """
 
-class DumbComputer(object):
+# pylint thinks that we need at least 2 public methods. I disagree.
+# pylint: disable=too-few-public-methods
+class DumbComputer():
     """Dumb computer class that can parse and execute opcodes as specified in day 2
 
     Attributes:
         instructions: A list of ints representing the memory of this computer. This
         list will contain instructions and results as parsed and executed from the
-        instructions string in the __init__ function.
+        memory string in the __init__ function.
     """
 
-    def __init__(self, instructions):
+    def __init__(self, memory):
         """constructor the the DumbComputer.
 
         Args:
-            instructions: A string containing all of the opcode instructions separated
+            memory: A string containing all of the input memory ints separated
             by commas, without any extra whitespace.
         """
-        # convert all the instructions to integers
-        self.instructions = [int(i) for i in instructions.split(",")]
-    
+        # convert all the memory values to integers
+        self.memory = [int(i) for i in memory.split(",")]
+
     def process_instructions(self):
         """Function that processes all the instructions in memory and returns the
         contents of memory as a string of comma separated int values
         """
-        for opcode in self.instructions:
-            if opcode == 1:
-                print(1)
-            elif opcode == 2:
-                print(2)
-            elif opcode == 99:
-                print(99)
-#            else:
-#                raise ValueError("Invalid opcode: {}".format(opcode))
+        for index, value in enumerate(self.memory):
+            # an instruction occurs every 4 positions
+            if index % 4 == 0:
+                if value == 1:
+                    arg1 = self.memory[self.memory[index + 1]]
+                    arg2 = self.memory[self.memory[index + 2]]
+                    output_position = self.memory[index + 3]
+                    self.memory[output_position] = arg1 + arg2
+                elif value == 2:
+                    arg1 = self.memory[self.memory[index + 1]]
+                    arg2 = self.memory[self.memory[index + 2]]
+                    output_position = self.memory[index + 3]
+                    self.memory[output_position] = arg1 * arg2
+                elif value == 99:
+                    break
+                else:
+                    raise ValueError("Invalid opcode: {}".format(opcode))
         # return placeholder value
-        return ""
-         
+        return ",".join(map(str, self.memory))

@@ -16,7 +16,7 @@ class Tests(unittest.TestCase):
         """
         computer = DumbComputer("1,9,10,3,2,3,11,0,99,30,40,50")
         self.assertEqual(computer.process_instructions(),
-                            "3500,9,10,70,2,3,11,0,99,30,40,50")
+                         "3500,9,10,70,2,3,11,0,99,30,40,50")
 
     def test_first_small_example(self):
         """Tests the DumbComputer.process_instructions function with the
