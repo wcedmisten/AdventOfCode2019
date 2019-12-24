@@ -48,6 +48,17 @@ class DumbComputer():
         return ",".join(map(str, self.memory))
 
 def brute_force_solve(desired_output):
+    """Function that solves the problem for day 2 part 2, essentially searching a space for a
+    desired output from the memory module.
+
+    Args:
+        desired_output: A string representing the desired value at address 0 after the
+            instructions have been run.
+
+    Returns: The final result of the problem, the value of 100 * noun + verb, where noun is the
+    value at position 1 and verb is the value at position 2 in the input memory which results in
+    position 0 being desired_output.
+    """
     input_memory = ("1,{},{},3,1,1,2,3,1,3,4,3,1,5,0,3,2,10,1,19,1,19,5,23,1,23,9,27,2,27,6,31,1"
                     ",31,6,35,2,35,9,39,1,6,39,43,2,10,43,47,1,47,9,51,1,51,6,55,1,55,6,59,2,59"
                     ",10,63,1,6,63,67,2,6,67,71,1,71,5,75,2,13,75,79,1,10,79,83,1,5,83,87,2,87,"
@@ -64,17 +75,15 @@ def brute_force_solve(desired_output):
     raise ValueError("Could not find input that matches desired output")
 
 # solution to day 2 part 1
-"""
-input_memory = ("1,{},{},3,1,1,2,3,1,3,4,3,1,5,0,3,2,10,1,19,1,19,5,23,1,23,9,27,2,27,6,31,1"
-                ",31,6,35,2,35,9,39,1,6,39,43,2,10,43,47,1,47,9,51,1,51,6,55,1,55,6,59,2,59"
-                ",10,63,1,6,63,67,2,6,67,71,1,71,5,75,2,13,75,79,1,10,79,83,1,5,83,87,2,87,"
-                "10,91,1,5,91,95,2,95,6,99,1,99,6,103,2,103,6,107,2,107,9,111,1,111,5,115,1"
-                ",115,6,119,2,6,119,123,1,5,123,127,1,127,13,131,1,2,131,135,1,135,10,0,99,"
-                "2,14,0,0")
+#input_memory = ("1,{},{},3,1,1,2,3,1,3,4,3,1,5,0,3,2,10,1,19,1,19,5,23,1,23,9,27,2,27,6,31,1"
+#                ",31,6,35,2,35,9,39,1,6,39,43,2,10,43,47,1,47,9,51,1,51,6,55,1,55,6,59,2,59"
+#                ",10,63,1,6,63,67,2,6,67,71,1,71,5,75,2,13,75,79,1,10,79,83,1,5,83,87,2,87,"
+#                "10,91,1,5,91,95,2,95,6,99,1,99,6,103,2,103,6,107,2,107,9,111,1,111,5,115,1"
+#                ",115,6,119,2,6,119,123,1,5,123,127,1,127,13,131,1,2,131,135,1,135,10,0,99,"
+#                "2,14,0,0")
 
-computer = DumbComputer(input_memory.format(12, 2))
-print(computer.process_instructions().split(",")[0])
-"""
+#computer = DumbComputer(input_memory.format(12, 2))
+#print(computer.process_instructions().split(",")[0])
 
 # solution to day 2 part 2
 # print(brute_force_solve("19690720"))
