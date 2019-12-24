@@ -63,6 +63,7 @@ def brute_force_solve(desired_output):
                 return 100 * noun + verb
     raise ValueError("Could not find input that matches desired output")
 
+# solution to day 2 part 1
 """
 input_memory = ("1,{},{},3,1,1,2,3,1,3,4,3,1,5,0,3,2,10,1,19,1,19,5,23,1,23,9,27,2,27,6,31,1"
                 ",31,6,35,2,35,9,39,1,6,39,43,2,10,43,47,1,47,9,51,1,51,6,55,1,55,6,59,2,59"
@@ -74,3 +75,6 @@ input_memory = ("1,{},{},3,1,1,2,3,1,3,4,3,1,5,0,3,2,10,1,19,1,19,5,23,1,23,9,27
 computer = DumbComputer(input_memory.format(12, 2))
 print(computer.process_instructions().split(",")[0])
 """
+
+# solution to day 2 part 2
+# print(brute_force_solve("19690720"))
