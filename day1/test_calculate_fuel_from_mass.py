@@ -25,13 +25,13 @@ class Tests(unittest.TestCase):
         """Tests read_mass_from_file with a short sample file test_input.txt.
 
         """
-        self.assertEqual(read_mass_from_file("test_input.txt"), [1345, 235, 12, 456, 45])
+        self.assertEqual(read_mass_from_file("day1/test_input.txt"), [1345, 235, 12, 456, 45])
 
     def test_calculate_total_fuel(self):
         """Tests calculate_total_fuel with a short sample file test_input.txt.
 
         """
-        self.assertEqual(calculate_total_fuel("test_input.txt"), 687)
+        self.assertEqual(calculate_total_fuel("day1/test_input.txt"), 687)
 
     def test_calculate_fuel_recursively(self):
         """Tests calculate_fuel_recursively with provided sample values.
@@ -45,7 +45,7 @@ class Tests(unittest.TestCase):
         """Tests calculate_total_fuel_recursively with a short sample file test_input.txt.
 
         """
-        self.assertEqual(calculate_total_fuel("test_input.txt"), 687)
+        self.assertEqual(calculate_total_fuel("day1/test_input.txt"), 687)
 
 if __name__ == '__main__':
     unittest.main()
