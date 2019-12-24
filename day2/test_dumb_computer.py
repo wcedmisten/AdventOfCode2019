@@ -4,6 +4,7 @@ Module to test the day 2 code.
 
 import unittest
 from dumb_computer import DumbComputer
+from dumb_computer import brute_force_solve
 
 class Tests(unittest.TestCase):
     """Class which contains unit tests for day 2 code.
@@ -49,6 +50,11 @@ class Tests(unittest.TestCase):
         """
         computer = DumbComputer("1,1,1,4,99,5,6,0,99")
         self.assertEqual(computer.process_instructions(), "30,1,1,4,2,5,6,0,99")
+
+    def test_brute_force_solve(self):
+        """Tests the brute force solver with the output from day 2 part 1
+        """
+        self.assertEqual(brute_force_solve("4945026"), 1202)
 
 
 if __name__ == '__main__':
