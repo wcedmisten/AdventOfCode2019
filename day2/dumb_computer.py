@@ -55,10 +55,13 @@ def brute_force_solve(desired_output):
                     ",115,6,119,2,6,119,123,1,5,123,127,1,127,13,131,1,2,131,135,1,135,10,0,99,"
                     "2,14,0,0")
     # check all combinations of noun and verb between 0-99
-    #for noun, verb in zip(range(100), range(100)):
-    #    computer = input_memory.format(noun, verb)
-
-    return 1
+    for noun in range(100):
+        for verb in range(100):
+            computer = DumbComputer(input_memory.format(noun, verb))
+            result = computer.process_instructions()
+            if result.split(",")[0] == desired_output:
+                return 100 * noun + verb
+    raise ValueError("Could not find input that matches desired output")
 
 """
 input_memory = ("1,{},{},3,1,1,2,3,1,3,4,3,1,5,0,3,2,10,1,19,1,19,5,23,1,23,9,27,2,27,6,31,1"
