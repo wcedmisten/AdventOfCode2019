@@ -1,10 +1,17 @@
 #!/bin/bash
 
+git stash
+
+git checkout master
+pylint **/*.py
+
 # check the pylint diff from master, it will have a + in
 # the output if the score didn't decrease
 if pylint **/*.py | tail -2 | grep +; then
     echo "Code didn't get worse"
+    git stash apply --index
 else
     echo "Code got worse"
+    git stash apply --index
     exit 1
 fi
