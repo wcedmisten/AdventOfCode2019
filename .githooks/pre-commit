@@ -1,3 +1,7 @@
 #!/bin/bash
 
-pylint **/*.py
+# check the pylint diff from master, it will have a + in
+# the output if the score didn't decrease
+if pylint **/*.py | tail -2 | grep +; then
+    echo "Code didn't get worse"
+fi
