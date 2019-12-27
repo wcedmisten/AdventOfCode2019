@@ -2,6 +2,9 @@
 
 git stash
 
+# keep the current branch
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
 git checkout master
 pylint **/*.py
 
@@ -9,9 +12,11 @@ pylint **/*.py
 # the output if the score didn't decrease
 if pylint **/*.py | tail -2 | grep +; then
     echo "Code didn't get worse"
+    git checkout $BRANCH
     git stash apply --index
 else
     echo "Code got worse"
+    git checkout $BRANCH
     git stash apply --index
     exit 1
 fi
