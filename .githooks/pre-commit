@@ -4,4 +4,7 @@
 # the output if the score didn't decrease
 if pylint **/*.py | tail -2 | grep +; then
     echo "Code didn't get worse"
+else
+    echo "Code got worse"
+    exit 1
 fi
